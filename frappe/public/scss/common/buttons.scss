@@ -9,9 +9,13 @@
 	border-radius: var(--border-radius);
 	box-shadow: var(--btn-shadow);
 	font-size: var(--text-md);
+	height: var(--btn-default-height);
+	font-weight: 500;
+	padding: 8px 16px;
 	&.icon-btn {
 		height: var(--btn-height);
-		padding: 0px;
+		font-weight: 500;
+		// padding: 0px;
 		@extend .center-content;
 		&.btn-default, &.btn-secondary {
 			min-width: 28px;
@@ -58,12 +62,22 @@
 	}
 }
 
+// .btn.btn-secondary {
+// 	background-color: var(--control-bg);
+// 	color: var(--text-color);
+// 	&:hover, &:active {
+// 		background-color: var(--gray-400);
+// 		color: var(--text-color);
+// 	}
+// }
+
 .btn.btn-secondary {
-	background-color: var(--control-bg);
-	color: var(--text-color);
+	background-color: var(--secondary-color);
+	color: var(--white);
+	--icon-stroke: currentColor;
+	--icon-fill-bg: var(--primary);
 	&:hover, &:active {
-		background-color: var(--gray-400);
-		color: var(--text-color);
+		opacity: 0.8;
 	}
 }
 
@@ -77,11 +91,14 @@
 }
 
 .btn.btn-primary {
-	background-color: var(--primary);
+	background-color: var(--primary-color);
 	color: var(--white);
 	white-space: nowrap;
 	--icon-stroke: currentColor;
 	--icon-fill-bg: var(--primary);
+	&:hover, &:active {
+		opacity: 0.8;
+	}
 }
 
 .btn.btn-danger {

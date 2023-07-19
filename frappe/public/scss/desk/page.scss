@@ -54,12 +54,15 @@
 .page-actions {
 	align-items: center;
 	.btn {
-		height: var(--btn-height);
+		// height: var(--btn-height);
+		height: var(--btn-default-height);
 		margin-left: var(--margin-sm, 8px);
 		border-radius: var(--border-radius);
 	}
 	.btn:not(.icon-btn) {
-		padding: 4px 10px;
+		padding: 8px 16px;
+		display: flex;
+		align-items: center;
 	}
 	.btn-primary, .btn-secondary {
 		min-width: 40px;
