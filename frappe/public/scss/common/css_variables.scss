@@ -245,7 +245,7 @@ $input-height: 28px !default;
 	--btn-default-height: calc(var(--btn-height) + 0px);
 
 	// Other Colors
-	--sidebar-select-color: var(--gray-200);
+	--sidebar-select-color: var(--blue-custom-50);
 
 	--scrollbar-thumb-color: var(--gray-400);
 	--scrollbar-track-color: var(--gray-200);
@@ -293,4 +293,14 @@ $input-height: 28px !default;
 
 	--right-arrow-svg: url("data: image/svg+xml;utf8, <svg width='6' height='8' viewBox='0 0 6 8' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1.25 7.5L4.75 4L1.25 0.5' stroke='%231F272E' stroke-linecap='round' stroke-linejoin='round'/></svg>");
 	--left-arrow-svg: url("data: image/svg+xml;utf8, <svg width='6' height='8' viewBox='0 0 6 8' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.5 9.5L4 6l3.5-3.5' stroke='%231F272E' stroke-linecap='round' stroke-linejoin='round'></path></svg>");
+
+	//Sidebar - variables
+	--blue-custom-50: #E3EAFF;
+	--blue-custom-100: #AAC0FF;
+	--blue-custom-200: #5D87FF;
+	--blue-custom-300: #3963D9;
+	--blue-custom-400: #2646A4;
+
+	--bg-sidebar-hover: var(--blue-custom-50);
+	--txt-sidebar-custom: var(--blue-custom-200);
 }
