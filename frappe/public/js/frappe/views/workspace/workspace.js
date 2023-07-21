@@ -86,6 +86,7 @@ frappe.views.Workspace = class Workspace {
 				item-is-hidden="${item.is_hidden || 0}"
 			>
 				<div class="desk-sidebar-item standard-sidebar-item ${item.selected ? "selected" : ""}">
+				<div class="desk-sidebar-line"></div>
 					<a
 						href="/app/${
 							item.public
@@ -94,6 +95,7 @@ frappe.views.Workspace = class Workspace {
 						}"
 						class="item-anchor ${item.is_editable ? "" : "block-click"}" title="${__(item.title)}"
 					>
+					
 						<span class="sidebar-item-icon" item-icon=${item.icon || "folder-normal"}>${frappe.utils.icon(
 			item.icon || "folder-normal",
 			"md"
@@ -240,7 +242,6 @@ frappe.views.Workspace = class Workspace {
 			setTimeout(() => this.show(), 100);
 			return;
 		}
-
 		let page = this.get_page_to_show();
 		this.page.set_title(__(page.name));
 
@@ -344,6 +345,19 @@ frappe.views.Workspace = class Workspace {
 	async show_page(page) {
 		if (!this.body.find("#editorjs")[0]) {
 			this.$page = $(`
+				<div class="desk-head-container">
+					<div class="row">
+						<div class="col-sm-8">
+							<h4 class="desk-head-title">${this.get_page_to_show().name}</h4>
+							<div class="d-flex align-items-center overflow-hidden"><!----></div>
+						</div>
+						<div class="col-sm-4 text-right position-relative">
+							<div class="desk-head-icon">
+								<img src="/assets/frappe/images/head_custom.png" alt="breadcrumb" width="165">
+							</div>
+						</div>
+					</div>
+				</div>
 				<div id="editorjs" class="desk-page page-main-content"></div>
 			`).appendTo(this.body);
 		}

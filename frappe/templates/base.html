@@ -15,7 +15,7 @@
 	{% block favicon %}
 	<link
 		rel="shortcut icon"
-		href="{{ ("/assets/frappe/images/logo.png") }}"
+		href="{{ ("/assets/frappe/images/icon7a.ico") }}"
 		type="image/x-icon"
 	>
 	{% endblock %}
@@ -71,7 +71,7 @@
 		{{ content }}
 	{% endblock %}
 
-	{%- block footer -%}
+	<!-- {%- block footer -%}
 		{{ web_block(
 			footer_template or 'Standard Footer',
 			values=_context_dict,
@@ -79,7 +79,7 @@
 			add_top_padding=0,
 			add_bottom_padding=0
 		) }}
-	{%- endblock -%}
+	{%- endblock -%} -->
 
 	{% block base_scripts %}
 	<!-- js should be loaded in body! -->

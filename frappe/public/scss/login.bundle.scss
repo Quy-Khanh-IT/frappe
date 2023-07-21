@@ -221,3 +221,53 @@ body {
 		}
 	}
 }
+// .custom.page-card {
+// 	max-width: 722px;
+// 	form {
+// 		max-width: 490px;
+// 	}
+// }
+.custom {
+	.page-card {
+		max-width: 722px;
+		form {
+			max-width: 490px;
+		}
+	}
+	.page-card-head {
+		img {
+			max-height: 150px;
+		}
+	}
+	.form-control {
+		height: 42px; 
+	}
+	.page-card-body {
+		.field-icon {
+			top: 10px !important;
+		}
+		.toggle-password {
+			top: 10px !important;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+			font-size: var(--text-lg) !important;
+		}
+		.form-label {
+			font-size: var(--text-lg) !important;
+		}
+	}
+	.btn-login,
+	.btn-forgot,
+	.btn-signup,
+	.btn-login-with-email-link {
+		height: 42px;
+		font-size: var(--text-lg) !important;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+	.page-card-head {
+		margin-bottom: 2rem !important;
+	}
+}

@@ -1025,7 +1025,7 @@ body {
 		.item-anchor {
 			display: flex;
 			overflow: hidden;
-			padding: 8px 0px 8px 12px;
+			padding: 12px 0px 12px 12px;
 			flex: 1;
 		}
 	}
@@ -1084,7 +1084,7 @@ body {
 
 		.standard-sidebar-section.show-control {
 			.desk-sidebar-item.standard-sidebar-item {
-
+				position: relative;
 				&:hover, &.selected {
 					.drag-handle {
 						display: inline-block;
@@ -1104,10 +1104,26 @@ body {
 				.block-click {
 					pointer-events:none;
 				}
+
+				
 			}
 		}
 	}
 
+	.desk-sidebar-line {
+		width: 4px;
+		// background-color: var(--blue-custom-300);
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		// width: 0;
+		// height: 6px;
+		// border-radius: 15px;
+		// background-color: #c23564;
+		// transition: all 0.1s ease;
+		
+	}
 
 	// widgets
 	.widget.number-widget-box {
@@ -1494,4 +1510,21 @@ body {
 		margin-right: 5px;
 	}
 
+}
+.desk-head-container {
+	padding: 30px 24px;
+	margin-bottom: 30px;
+	border-radius: 7px;
+	overflow: hidden;
+	background-color: var(--blue-custom-50) !important;
+	.desk-head-title {
+		font-size: 20px;
+		margin-bottom: 16px;
+		font-weight: 600;
+	}
+	.desk-head-icon {
+		position: absolute;
+		top: -20px;
+		right: 19px;
+	}
 }

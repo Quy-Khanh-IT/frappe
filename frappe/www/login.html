@@ -62,7 +62,7 @@
 {% macro logo_section() %}
 <div class="page-card-head">
 	<img class="app-logo" src="{{ logo }}">
-	<h4>{{ _('Login to {0}').format(app_name or _("Frappe")) }}</h4>
+	<!-- <h4>{{ _('Login to {0}').format(app_name or _("Frappe")) }}</h4> -->
 </div>
 {% endmacro %}
 
@@ -77,8 +77,8 @@
 		</div>
 	</noscript>
 	<section class='for-login'>
+		{{ logo_section() }}
 		<div class="login-content page-card">
-			{{ logo_section() }}
 			<form class="form-signin form-login" role="form">
 				{%- if social_login or login_with_email_link -%}
 				<div class="page-card-body">
@@ -116,13 +116,14 @@
 					{{ email_login_body() }}
 				{%- endif -%}
 			</form>
+			{%- if not disable_signup and not disable_user_pass_login -%}
+			<div class="text-center sign-up-message">
+				{{ _("Don't have an account?") }}
+				<a href="#signup">{{ _("Sign up") }}</a>
+			</div>
+			{%- endif -%}
 		</div>
-		{%- if not disable_signup and not disable_user_pass_login -%}
-		<div class="text-center sign-up-message">
-			{{ _("Don't have an account?") }}
-			<a href="#signup">{{ _("Sign up") }}</a>
-		</div>
-		{%- endif -%}
+		
 	</section>
 
 	{%- if social_login -%}
@@ -142,8 +143,9 @@
 	</section>
 	{%- endif -%}
 	<section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
+		{{ logo_section() }}
 		<div class="login-content page-card">
-			{{ logo_section() }}
+			
 			{%- if not disable_signup -%}
 			{{ signup_form_template }}
 			{%- else -%}
