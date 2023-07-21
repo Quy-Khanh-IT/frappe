@@ -197,6 +197,22 @@ $level-margin-right: 8px;
 	}
 }
 
+.custom {
+	.list-paging-area, .footnote-area {
+		.btn-group .btn-paging {
+			background-color: var(--blue-custom-50);
+			border-color: var(--gray-600);
+			color: var(--blue-custom-200);
+		}
+
+		.btn-group .btn-paging.btn-info {
+			background-color: var(--primary-color);
+			border-color: var(--gray-600);
+			color: var(--white);
+		}
+	}
+}
+
 .frappe-card {
 	.list-paging-area, .footnote-area {
 		padding: var(--padding-md);

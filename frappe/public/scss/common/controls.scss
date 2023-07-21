@@ -472,6 +472,14 @@ button.data-pill {
 	align-items: center;
 }
 
+.custom button.data-pill {
+	background-color: var(--blue-custom-50);
+	color: var(--blue-custom-200);
+	&:hover, &:active {
+		opacity: 0.8;
+	}
+}
+
 .capture-remove-btn {
 	position: absolute;
 	top: 0;

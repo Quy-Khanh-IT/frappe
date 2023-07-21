@@ -4,6 +4,16 @@
 	align-items: center;
 }
 
+.custom {
+	.btn {
+		--icon-stroke: var(--blue-custom-200);
+		&.btn-secondary:not([data-label="Cancel"]) {
+			--control-bg: var(--blue-custom-50);
+			--text-color: var(--blue-custom-200);
+		}
+	}
+}
+
 .btn {
 	border: none;
 	border-radius: var(--border-radius);
@@ -62,22 +72,26 @@
 	}
 }
 
-// .btn.btn-secondary {
-// 	background-color: var(--control-bg);
-// 	color: var(--text-color);
-// 	&:hover, &:active {
-// 		background-color: var(--gray-400);
-// 		color: var(--text-color);
-// 	}
-// }
 
 .btn.btn-secondary {
-	background-color: var(--secondary-color);
-	color: var(--white);
-	--icon-stroke: currentColor;
-	--icon-fill-bg: var(--primary);
+	background-color: var(--control-bg);
+	color: var(--text-color);
 	&:hover, &:active {
+		background-color: var(--gray-400);
+		color: var(--text-color);
+	}
+}
+
+.custom .btn.btn-secondary:not([data-label="Cancel"]) {
+	&:hover {
 		opacity: 0.8;
+		background-color: var(--control-bg);
+		color: var(--text-color);
+	};
+	&:active {
+		opacity: 1;
+		background-color: var(--control-bg);
+		color: var(--text-color);
 	}
 }
 
@@ -90,14 +104,19 @@
 	}
 }
 
-.btn.btn-primary {
+.custom .btn.btn-primary {
 	background-color: var(--primary-color);
 	color: var(--white);
 	white-space: nowrap;
 	--icon-stroke: currentColor;
 	--icon-fill-bg: var(--primary);
-	&:hover, &:active {
+	&:hover {
 		opacity: 0.8;
+	};
+	&:active {
+		opacity: 1;
+		background-color: var(--primary-color);
+		color: var(--white);
 	}
 }
 

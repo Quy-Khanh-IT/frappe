@@ -151,6 +151,7 @@ $input-height: 28px !default;
 	--text-muted: var(--gray-700);
 	--text-light: var(--gray-800);
 	--text-color: var(--gray-900);
+	--text-color-custom: var(--white);
 	--heading-color: var(--gray-900);
 
 	// SVG Colors
@@ -301,6 +302,9 @@ $input-height: 28px !default;
 	--blue-custom-300: #3963D9;
 	--blue-custom-400: #2646A4;
 
+	--green-custom-500: #22CAAD;
+
 	--bg-sidebar-hover: var(--blue-custom-50);
 	--txt-sidebar-custom: var(--blue-custom-200);
 }
+

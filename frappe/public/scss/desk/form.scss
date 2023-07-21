@@ -119,6 +119,16 @@
 	}
 }
 
+.custom .comment-box {
+	.btn-comment {
+		background-color: var(--green-custom-500) !important;
+		color: var(--white) !important;
+		&:hover, &:active {
+			opacity: 0.8;
+		}
+	}
+}
+
 .form-dashboard-wrapper {
 	width: 100%;
 }
@@ -173,6 +183,17 @@
 		}
 		.btn-new {
 			box-shadow: none;
+		}
+	}
+}
+
+.custom .form-links {
+	.document-link {
+		margin-bottom: var(--margin-sm);
+		display: flex;
+		.document-link-badge {
+			display: flex;
+			align-items: center;
 		}
 	}
 }
