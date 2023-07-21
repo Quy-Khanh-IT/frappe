@@ -115,6 +115,7 @@ frappe.ui.Page = class Page {
 
 	setup_page() {
 		this.$title_area = this.wrapper.find(".title-area");
+		this.$title_custom = this.wrapper.find(".page-body");
 
 		this.$sub_title_area = this.wrapper.find("h6");
 
@@ -720,6 +721,12 @@ frappe.ui.Page = class Page {
 		return this.$title_area;
 	}
 
+	// page custom
+	get_title_custom()
+	{
+		return this.$title_custom;
+	}
+
 	set_title(title, icon = null, strip = true, tab_title = "") {
 		if (!title) title = "";
 		if (strip) {
@@ -733,6 +740,9 @@ frappe.ui.Page = class Page {
 		let title_wrapper = this.$title_area.find(".title-text");
 		title_wrapper.html(title);
 		title_wrapper.attr("title", this.title);
+		let desk_head_title = this.$title_custom.find(".desk-head-title");
+		desk_head_title.html(title);
+		desk_head_title.attr("title", this.title);
 	}
 
 	set_title_sub(txt) {

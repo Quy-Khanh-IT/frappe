@@ -277,12 +277,12 @@ h2 {
 }
 
 .input-xs {
-	height: 26px;
+	height: 32px;
 	font-size: var(--text-md);
 }
 
 select.input-xs {
-	line-height: 1.2;
+	line-height: 1.5;
 }
 
 /* popover */
@@ -411,11 +411,13 @@ kbd {
 	.standard-sidebar-item {
 		@include flex(flex, null, center, null);
 		font-size: var(--text-base);
-		padding: 8px 12px;
+		// padding: 12px 0px 12px 12px;
 		margin-bottom: 2px;
-		border-radius: var(--border-radius-md);
+		border-radius: 2px;
 		overflow: hidden;
 		cursor: pointer;
+		font-weight: 600;
+		// transition: all 0.1s ease;
 
 		.sidebar-item-label {
 			// https://css-tricks.com/flexbox-truncated-text/
@@ -429,15 +431,51 @@ kbd {
 			background-color: var(--sidebar-select-color);
 			outline: 0;
 			text-decoration: none;
+			a {
+				color: var(--txt-sidebar-custom) !important;
+				text-decoration: none;
+			}
+			svg {
+				--icon-stroke: var(--blue-custom-200);
+				//filter: brightness(0) saturate(100%) invert(70%) sepia(88%) saturate(4845%) hue-rotate(206deg) brightness(100%) contrast(105%);
+			}
+			// .desk-sidebar-line {
+			// 	opacity: 1;
+			// 	background-color: var(--blue-custom-300);
+			// }
 		}
 
 		&:hover {
 			background-color: var(--sidebar-select-color);
 			text-decoration: none;
+			a {
+				color: var(--txt-sidebar-custom) !important;
+				text-decoration: none;
+			}
+			svg {
+				--icon-stroke: var(--blue-custom-200);
+				// filter: brightness(0) saturate(100%) invert(70%) sepia(88%) saturate(4845%) hue-rotate(206deg) brightness(100%) contrast(105%);
+			}
+			.desk-sidebar-line {
+				opacity: 0.3;
+				background-color: var(--blue-custom-300);
+			}
 		}
 
 		&.selected {
 			background-color: var(--sidebar-select-color);
+			a {
+				color: var(--txt-sidebar-custom) !important;
+				text-decoration: none;
+			}
+			svg {
+				--icon-stroke: var(--blue-custom-200);
+				// filter: brightness(0) saturate(100%) invert(70%) sepia(88%) saturate(4845%) hue-rotate(206deg) brightness(100%) contrast(105%);
+			}
+			.desk-sidebar-line {
+				opacity: 1;
+				background-color: var(--blue-custom-300);
+			}
 		}
 
 		a {
