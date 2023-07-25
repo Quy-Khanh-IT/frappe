@@ -9,18 +9,27 @@
 	border-radius: var(--border-radius);
 	box-shadow: var(--btn-shadow);
 	font-size: var(--text-md);
-	height: var(--btn-default-height);
-	font-weight: 500;
-	padding: 8px 16px;
 	&.icon-btn {
 		height: var(--btn-height);
-		font-weight: 500;
-		// padding: 0px;
+		padding: 0px;
 		@extend .center-content;
 		&.btn-default, &.btn-secondary {
 			min-width: 28px;
 		}
 	}
+}
+
+.custom .btn {
+	// height: var(--btn-default-height);
+	font-weight: 500;
+	&.icon-btn {
+		height: var(--btn-height);
+		padding: 0 10px;
+	}
+}
+
+.custom .btn:not(.icon-btn) {
+	padding: 8px 16px;
 }
 
 .btn-secondary-dark {
