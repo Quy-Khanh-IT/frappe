@@ -823,6 +823,26 @@ body {
 	}
 }
 
+.custom .widget {
+	&.dashboard-widget-box {
+		.filter-chart {
+			background-color: var(--blue-custom-50);
+			display: flex;
+			align-items: center;
+			&:hover {
+				opacity: 0.8;
+				background-color: var(--blue-custom-50);
+				color: var(--blue-custom-200);
+			};
+			&:active {
+				opacity: 1;
+				background-color: var(--blue-custom-50);
+				color: var(--blue-custom-200);
+			}
+		}
+	}
+}
+
 .onboarding-success {
 	margin: var(--margin-lg) auto;
 	max-width: 75%;

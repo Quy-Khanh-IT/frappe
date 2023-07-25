@@ -77,6 +77,38 @@
 	}
 }
 
+.custom {
+	.page-actions {
+		.custom-actions, .standard-actions {
+			.btn.btn-default:not([data-label="Cancel"]) {
+				background-color: var(--blue-custom-50);
+				color: var(--blue-custom-200);
+				&:hover {
+					opacity: 0.8;
+				};
+				&:active {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+.custom {
+	.page-content {
+		.btn.btn-default {
+			background-color: var(--blue-custom-50);
+			color: var(--blue-custom-200);
+			&:hover {
+				opacity: 0.8;
+			};
+			&:active {
+				opacity: 1;
+			}
+		}
+	}
+}
+
 .layout-main-section-wrapper {
 	margin-bottom: var(--page-bottom-margin);
 }
