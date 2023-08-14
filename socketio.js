@@ -6,6 +6,7 @@ const conf = get_conf();
 const log = console.log; // eslint-disable-line
 const subscriber = get_redis_subscriber();
 
+log("socketio_port: ", conf.socketio_port)
 const io = require("socket.io")(conf.socketio_port, {
 	cors: {
 		// Should be fine since we are ensuring whether hostname and origin are same before adding setting listeners for s socket
@@ -15,12 +16,15 @@ const io = require("socket.io")(conf.socketio_port, {
 });
 
 io.use((socket, next) => {
-	if (get_hostname(socket.request.headers.host) != get_hostname(socket.request.headers.origin)) {
-		next(new Error("Invalid origin"));
-		return;
-	}
+	log("connection 1: ", socket.site_name, socket.request.headers.host, socket.request.headers.origin)
+	// if (get_hostname(socket.request.headers.host) != get_hostname(socket.request.headers.origin)) {
+	// 	log("connection 2: ", socket.site_name)
+	// 	next(new Error("Invalid origin"));
+	// 	return;
+	// }
 
 	if (!socket.request.headers.cookie) {
+		log("connection 3: ", socket.site_name)
 		next(new Error("No cookie transmitted."));
 		return;
 	}
@@ -28,10 +32,12 @@ io.use((socket, next) => {
 	let cookies = cookie.parse(socket.request.headers.cookie);
 
 	if (!cookies.sid) {
+		log("connection 4: ", socket.site_name)
 		next(new Error("No sid transmitted."));
 		return;
 	}
 
+	log("connection 5: ", socket.site_name)
 	request
 		.get(get_url(socket, "/api/method/frappe.realtime.get_user_info"))
 		.type("form")
@@ -39,18 +45,22 @@ io.use((socket, next) => {
 			sid: cookies.sid,
 		})
 		.then((res) => {
+			log("connection 6: ", socket.site_name)
 			socket.user = res.body.message.user;
 			socket.user_type = res.body.message.user_type;
 			socket.sid = cookies.sid;
 			next();
 		})
 		.catch((e) => {
+			log("connection 7: ", socket.site_name)
+			log("er:", e)
 			next(new Error(`Unauthorized: ${e}`));
 		});
 });
 
 // on socket connection
 io.on("connection", function (socket) {
+	log("connection 8: ", socket.site_name)
 	socket.join(get_user_room(socket, socket.user));
 	socket.join(get_website_room(socket));
 
@@ -188,7 +198,6 @@ io.on("connection", function (socket) {
 
 subscriber.on("message", function (_channel, message) {
 	message = JSON.parse(message);
-
 	if (message.room) {
 		io.to(message.room).emit(message.event, message.message);
 	} else {
@@ -236,16 +245,20 @@ function get_site_name(socket) {
 	} else if (socket.request.headers["x-frappe-site-name"]) {
 		socket.site_name = get_hostname(socket.request.headers["x-frappe-site-name"]);
 	} else if (
-		conf.default_site &&
-		["localhost", "127.0.0.1"].indexOf(get_hostname(socket.request.headers.host)) !== -1
+		// conf.default_site &&
+		// ["localhost", "127.0.0.1"].indexOf(get_hostname(socket.request.headers.host)) !== -1
+		conf.default_site
 	) {
 		// from currentsite.txt since host is localhost
 		socket.site_name = conf.default_site;
-	} else if (socket.request.headers.origin) {
-		socket.site_name = get_hostname(socket.request.headers.origin);
-	} else {
-		socket.site_name = get_hostname(socket.request.headers.host);
 	}
+	// } else if (socket.request.headers.origin) {
+	// 	socket.site_name = get_hostname(socket.request.headers.origin);
+	// 	// socket.site_name = conf.default_site;
+	// } else {
+	// 	socket.site_name = get_hostname(socket.request.headers.host);
+	// 	// socket.site_name = conf.default_site;
+	// }
 	return socket.site_name;
 }
 
@@ -261,7 +274,7 @@ function get_url(socket, path) {
 	if (!path) {
 		path = "";
 	}
-	return socket.request.headers.origin + path;
+	return socket.request.headers.origin + ":8080" + path;
 }
 
 function can_subscribe_doc(args) {

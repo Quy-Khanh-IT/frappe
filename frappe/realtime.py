@@ -142,6 +142,7 @@ def get_doc_room(doctype, docname):
 
 
 def get_user_room(user):
+	print("user_room: ", frappe.local.site)
 	return f"{frappe.local.site}:user:{user}"
 
 
@@ -154,4 +155,4 @@ def get_task_progress_room(task_id):
 
 
 def get_website_room():
-	return f"{frappe.local.site}:website"
+	return f"{frappe.local.site}:website"	
