@@ -274,7 +274,8 @@ function get_url(socket, path) {
 	if (!path) {
 		path = "";
 	}
-	return socket.request.headers.origin + ":8080" + path;
+	// return socket.request.headers.origin + ":8080" + path;
+	return socket.request.headers.origin + path;
 }
 
 function can_subscribe_doc(args) {
